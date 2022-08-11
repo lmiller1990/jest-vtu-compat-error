@@ -28,16 +28,9 @@ const TestAsync = defineComponent({
   },
 });
 
-it.only("should show onMount text", async () => {
+it("should show onMount text", async () => {
   const { findByText, queryByText } = render(TestAsync);
-  await flushPromises()
-  console.log(document.body.outerHTML)
   await queryByText('mounted')
-
-  if (!document.body.outerHTML.includes('mounted')) {
-    throw Error('Uh oh')
-  } else {
-    console.log('Works great!')
-  }
+  expect(document.body.outerHTML).toContain('mounted')
 });
 
