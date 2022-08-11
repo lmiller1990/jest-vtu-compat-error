@@ -8,12 +8,14 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@testing-library/vue": "^6.6.1",
+    "@vue/compat": "^3.2.37",
     "vue": "^3.2.13"
   },
   "devDependencies": {
     "@vue/cli-plugin-unit-jest": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "@vue/test-utils": "^2.0.0-0",
+    "@vue/test-utils": "^2.0.2",
     "@vue/vue3-jest": "^27.0.0-alpha.1",
     "babel-jest": "^27.0.6",
     "jest": "^27.0.5"
@@ -25,6 +27,9 @@
     "not ie 11"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest/presets/no-babel"
+    "preset": "@vue/cli-plugin-unit-jest/presets/no-babel",
+    "moduleNameMapper": {
+      "^vue$": "@vue/compat/dist/vue.cjs.js"
+    }
   }
 }
